@@ -27,7 +27,8 @@ rootProject.allprojects {
 
 android {
     namespace 'com.sameer.flutterstatusbarcolor.flutterstatusbarcolor'
-    compileSdkVersion 35
+    compileSdk = flutter.compileSdkVersion
+    ndkVersion = flutter.ndkVersion
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
@@ -41,7 +42,10 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
     }
     defaultConfig {
-        minSdkVersion 24
+        minSdk = 24
+        targetSdk = flutter.targetSdkVersion
+        versionCode = flutterVersionCode.toInteger()
+        versionName = flutterVersionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     lintOptions {
